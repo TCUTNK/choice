@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>ページタイトル</title>
+<!--CSS -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<!-- fontawesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+
+<!--JS -->
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" integrity="sha384-u/bQvRA/1bobcXlcEYpsEdFVK/vJs3+T+nXLsBYJthmdBuavHvAW6UsmqO2Gd/F9" crossorigin="anonymous"></script>
+<!--自作CSS -->
+		<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<header>
+		<div class="header-box clearfix">
+			<p class="choice-summary">みんなの行きたいがわかるツール</p>
+			<a href="#" class="logo"></a>
+			<nav>
+				<ul>
+					<!-- <li><a href="#history">食事会履歴</a></li> -->
+					<li><a href="#">新規登録</a></li>
+					<li><a href="#">ログイン</a></li>
+					<li><a href="file:///Users/hirayamadaiki/Desktop/work/vagrant/choice/index.html#about">"Choice"とは</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main>
+		<div class="main-content">
+			<h3 class="dinner-generate-message">
+				<span class="make-url-title">食事会作成完了</span>
+			</h3>
+			<h4 class="make-url-message">URLを皆に共有してあげましょう。このURLページにて各自の出欠情報を入力してもらいます。</h4>
+			<input class="form-input new-event-url-input" type="text" id="test" value="https://chouseisan.com/s?h=49e08c7e5fa743f792350dc2f859717f" id="listUrl" onclick="this.select();">
+			<span><button onclick="copyToClipboard()"><i class="far fa-copy"></i></button></span>
+			<div class="btn btn-outline-success dinner-form-button">
+				食事会ページヘ
+			</div>
+
+		</div>
+	</main>
+	<footer>
+		<a href="#" class="company"></a>
+		<div id="header-content">
+			<a href="#" class="logo-2"></a>
+		</div>
+		<p class="copyright">Copyright (C) Choice, Inc. All Rights Reserved.</p>
+	</footer>
+	<script>
+        function copyToClipboard() {
+            // コピー対象をJavaScript上で変数として定義する
+            var copyTarget = document.getElementById("test");
+            // コピー対象のテキストを選択する
+            copyTarget.select();
+            // 選択しているテキストをクリップボードにコピーする
+            document.execCommand("Copy");
+            // コピーをお知らせする
+            alert("コピー完了！lineなどで共有しよう");
+        }
+    </script>
+</body>
+</html>
+
+

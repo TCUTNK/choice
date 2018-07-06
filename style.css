@@ -115,7 +115,7 @@ vertical-align:middle;
 	color:#222222;
 }
 
-header {
+header, footer {
 	width: 100%;
 	height: 200px;
 	background-color: #CCFFCC;
@@ -160,13 +160,13 @@ a:hover {
 .dinner-message {
 	margin-top: 20px;
 	margin-bottom: 20px;
-	/*margin-left: 167px;*/
 	width: 100%;
 	border-bottom: inset 7px #c0c0c0;
 	border-radius: 0.4em;
 	text-align: center;
 }
-.fa-utensils, .make-dinner-message {
+
+.fa-utensils, .make-dinner-message, .make-url-title {
 	font-size: 26px;
 	text-align: center;
 }
@@ -180,7 +180,7 @@ a:hover {
 	font-size: 20px;
 	margin: 7px;
 }
-input, textarea {
+input, textarea, .make-url-message {
 	font-family: 'MS PGothic';
 }
 .choice-summary {
@@ -291,6 +291,23 @@ input, textarea {
 	font-family: 'MS PGothic';
 	font-size: 13px;
 }
+.dinner-generate-message {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	/*margin-left: 167px;*/
+	width: 100%;
+	border-bottom: inset 7px #c0c0c0;
+	border-radius: 0.4em;
+	text-align: center;
+}
+.make-url-message {
+	margin-top: 20px;
+	margin-bottom: 60px;
+}
+.new-event-url-input {
+	width: 90%;
+}
+
 
 
 
