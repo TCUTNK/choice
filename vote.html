@@ -32,20 +32,33 @@
 			</nav>
 		</div>
 	</header>
-	<main>
-		<div class="main-content">
-			<h3 class="dinner-generate-message">
-				<span class="make-url-title">食事会作成完了</span>
-			</h3>
-			<h4 class="make-url-message">URLを皆に共有してあげましょう。このURLページにて各自の出欠情報を入力してもらいます。</h4>
-			<input class="form-input new-event-url-input" type="text" id="test" value="https://chouseisan.com/s?h=49e08c7e5fa743f792350dc2f859717f" id="listUrl" onclick="this.select();">
-			<span><button onclick="copyToClipboard()"><i class="far fa-copy"></i></button></span>
-			<div class="btn btn-outline-success dinner-form-button">
-				食事会ページヘ
-			</div>
 
-		</div>
-	</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	<footer>
 		<a href="#" class="company"></a>
 		<div id="header-content">
@@ -53,19 +66,5 @@
 		</div>
 		<p class="copyright">Copyright (C) Choice, Inc. All Rights Reserved.</p>
 	</footer>
-	<script>
-        function copyToClipboard() {
-            // コピー対象をJavaScript上で変数として定義する
-            var copyTarget = document.getElementById("test");
-            // コピー対象のテキストを選択する
-            copyTarget.select();
-            // 選択しているテキストをクリップボードにコピーする
-            document.execCommand("Copy");
-            // コピーをお知らせする
-            alert("コピー完了！lineなどで共有しよう");
-        }
-    </script>
 </body>
 </html>
-
-
