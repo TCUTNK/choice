@@ -157,6 +157,12 @@ a:hover {
 	margin: 0 auto;
 	padding-top: 50px;
 }
+.main-content-vote {
+	width: 40%;
+	margin: 0 auto;
+	padding-top: 50px;
+}
+
 .dinner-message {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -307,8 +313,50 @@ input, textarea, .make-url-message {
 .new-event-url-input {
 	width: 90%;
 }
-
-
+.vote-form {
+	margin: 10px auto;
+	background-color: #eeeeee;
+	padding: 10px;
+    border-radius: 10px;
+}
+.vote-attend {
+	margin:0 auto;
+}
+.attend-vote-btn {
+	margin-left: 5%;
+	margin-right: 5%;
+	width: 100px;
+}
+.attnd-vote-btn:active{
+	background-color: red;
+}
+.dinner-title {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	/*margin-left: 167px;*/
+	width: 100%;
+	border-bottom: inset 7px #c0c0c0;
+	border-radius: 0.4em;
+}
+.vote-name {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.vote-name-form, .vote-btn, .area-box, .genre-box {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+.area-btn {
+	margin: 20px;
+}
+.vote-decide-btn {
+	border-radius: 50px;
+	display: block;
+	margin: 30px auto;
+	background-color: white;
+	color: black;
+}
 
 
 
