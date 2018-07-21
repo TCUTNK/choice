@@ -356,9 +356,20 @@ input, textarea, .make-url-message {
 	margin: 30px auto;
 	background-color: white;
 	color: black;
+	width: 50%;
 }
+.detail {
+	width: 90%;
+	margin: 10px auto;
+	padding: 10px;
+	background-color: white;
+	border-radius: 10px;
+	line-height: 25px;
+}
+.card-red {
+	background-color: #FF69A3;
 
-
+}
 
 
 
