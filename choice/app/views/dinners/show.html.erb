@@ -1,0 +1,26 @@
+<main>
+		<div class="main-content">
+			<h3 class="dinner-generate-message">
+				<span class="make-url-title">食事会作成完了</span>
+			</h3>
+			<h4 class="make-url-message">URLを皆に共有してあげましょう。このURLページにて各自の出欠情報を入力してもらいます。</h4>
+			<%#= "localhost:3000/dinners/#{@dinner.slug}/votes/new" class:  "form-input new-event-url-input" %>
+			<input class="form-input new-event-url-input" type="text" id="test" value="localhost:3000/dinners/<%= @dinner.slug %>/votes/new" id="listUrl" onclick="this.select();">
+
+			<span><button onclick="copyToClipboard()"><i class="far fa-copy"></i></button></span>
+			<%= link_to "投票する！", new_dinner_vote_path(@dinner), class: "btn btn-outline-success dinner-form-button" %>
+
+		</div>
+	</main>
+	<script>
+        function copyToClipboard() {
+            // コピー対象をJavaScript上で変数として定義する
+            var copyTarget = document.getElementById("test");
+            // コピー対象のテキストを選択する
+            copyTarget.select();
+            // 選択しているテキストをクリップボードにコピーする
+            document.execCommand("Copy");
+            // コピーをお知らせする
+            alert("コピー完了！lineなどで共有しよう");
+        }
+    </script>

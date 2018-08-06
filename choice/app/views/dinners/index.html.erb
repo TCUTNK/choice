@@ -1,0 +1,92 @@
+	<main>
+		<div class="main-content">
+			<h3 class="dinner-message">
+				<i class="fas fa-utensils"></i>
+				<span class="make-dinner-message">みんなでご飯に行こう</span>
+			</h3>
+			<%= form_for(@dinner_new) do |f| %>
+			<div class="make-dinner-form clearfix">
+				<div class="dinner-left-up clearfix">
+					<p class="dinner-name" >食事会名</p>
+					<%= f.text_field :dinner_name, class: "form-control col-md-15 dinner-name-form", placeholder: "食事会名" %>
+					<%= f.fields_for :areas do |q| %>
+						<p class="dinner-area" >エリア</p>
+						<span><%= link_to_add_association "追加", f, :areas, class: "btn btn-outline-secondary cocoon-btn1",data: {
+          association_insertion_node: '.test',
+          association_insertion_method: 'append'} %></span>
+						<div class="test">
+						<%= render 'area_fields', f: q %>
+          				</div>
+					<% end %>
+
+					<%= f.fields_for :genres do |a| %>
+						<p class="dinner-genre">ジャンル</p>
+						<span><%= link_to_add_association "追加", f, :genres, class: "btn btn-outline-secondary cocoon-btn1",data: {
+          association_insertion_node: '.test2',
+          association_insertion_method: 'append'} %></span>
+						<div class="test2">
+							<%= render 'genre_fields', f: a %>
+						</div>
+					<% end %>
+				</div>
+				<div class="dinner-right-down clearfix">
+					<p class="dinner-date">日時</p>
+					 <%= f.datetime_select :make_time, class: "form-control col-md-15 dinner-date-form", :use_month_numbers => true, :default => Time.now + 11.hour %>
+					<p class="dinner-memo">その他メモ</p>
+	    			<%= f.text_area :memo, class: "form-control col-md-15 dinner-memo-form", id: "exampleFormControlTextarea1",rows:"5", placeholder: "その他記載事項" %>
+	    		</div>
+	    		<%= f.submit "完了！", class: "btn btn-outline-success dinner-form-button dinner-form-button" %>
+			</div>
+			<% end %>
+		</div>
+	</main>
+	<div id="history">
+		<div class="history-content">
+			<h3 class="history-title">
+				<p class="history-title-name">最近投票した食事会</p>
+			</h3>
+			<div class="row">
+				<% @histories.each do |vote| %>
+				<div class="col-sm-5 history-card-box">
+		    		<div class="card">
+		      			<div class="card-body">
+		        			<h5 class="card-title"><%= vote.dinner.dinner_name %></h5>
+		        			<p class="card-text"><%= vote.dinner.make_time.strftime("%Y-%m-%d %H:%M") %></p><br>
+		        			<%= link_to "詳細を見る", history_path(vote.dinner), class: "btn btn-outline-success" %>
+		      			</div>
+		    		</div>
+		  		</div>
+		  		<% end %>
+		  	</div>
+		  	<div class="history-detail">
+		  		<h4 class="history-detail-message">
+		  			<%= link_to "投票した食事会をすべて見る", histories_path %>
+		  		</h4>
+		  	</div>
+	  	</div>
+	</div>
+	<div id="about">
+		<div class="about-content">
+			<h3 class="about-choice">
+				<span class="about-choice-title">Choiceとは</span>
+			</h3>
+			<h4 class="about-choice-summary">
+				<p class="about-choice-summary">皆の行きたいレストランがすぐに見つかる,投票型レコメンドツールです。</p>
+			</h4>
+			<div class="choice-strong">
+				<h3 class="choice-strong-point">こんなときに使える！</h3>
+				<div class="choice-strong-img"></div>
+
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+

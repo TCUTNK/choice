@@ -1,0 +1,108 @@
+<main>
+	<div class="main-content vote-form">
+				<h3 class="dinner-title">
+					<span class="make-url-date"><%= @dinner.make_time.strftime("%Y-%m-%d %H:%M") %></span>
+					<div class="make-url-title">
+						<span class="make-url-title"><%= @dinner.dinner_name %></span>
+					</div>
+				</h3>
+				<div class="memo-text">
+					<h2 class="memo-text-title">メモ</h2>
+					<div class="detail">
+						<div class="memo-detail">
+						<%= @dinner.memo %>
+						</div>
+					</div>
+				</div>
+				<div class="attend-result">
+					<p class="vote-attend-title">参加人数</p>
+					<div class="detail">
+						<div class="attend-detail">
+							<div class="card text-center">
+							  <div class="card-header">
+							    参加
+							  </div>
+							  <div class="card-body">
+							    <h5 class="card-title"><%= @votes.where(attend: true).count %>
+							    	<div class="votes-name">(
+							    	<% @attend_users.each do |attend_user| %>
+							    		<%= attend_user.vote_name %>
+							    		,
+							    	<% end %>
+							    	)
+							    	</div>
+							    </h5>
+							  </div>
+							</div>
+							<div class="card text-center">
+							  <div class="card-header">
+							    不参加
+							  </div>
+							  <div class="card-body">
+							    <h5 class="card-title"><%= @votes.where(attend: false).count %>
+							    	<div class="votes-name">(
+							    	<% @absent_users.each do |absent_user| %>
+							    		<%= absent_user.vote_name %>
+							    		,
+							    	<% end %>
+							    	)
+							    	</div>
+							    </h5>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="attend-result">
+					<p class="vote-attend-title">予算</p>
+					<div class="detail">
+						<div class="attend-detail">
+							<% @votes.group(:budget_id).each do |vote| %>
+							<%# budgets.each do |budget| %>
+							<div class="card text-center">
+							  <div class="card-header">
+							  	<%= vote.budget.range %>
+							  </div>
+							  <div class="card-body">
+							    <h5 class="card-title"><%= @votes.where(budget_id: vote.budget.id).size %></h5>
+							  </div>
+							</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="area-result">
+					<p class="vote-area-title">エリア</p>
+					<div class="detail">
+						<% @votes.group(:vote_area_name).each do |vote| %>
+						<div class="card text-center">
+							  <div class="card-header">
+							  	<%= vote.vote_area_name %>
+							  </div>
+							  <div class="card-body">
+							    <h5 class="card-title">
+							    	<%=@votes.where(vote_area_name: vote.vote_area_name).size %></h5>
+							  </div>
+						</div>
+						<% end %>
+					</div>
+				</div>
+				<div class="genre-result">
+					<p class="vote-genre-title">料理</p>
+					<div class="detail">
+						<% @votes.group(:vote_genre_name).each do |vote| %>
+
+						<div class="card text-center">
+							<div class="card-header">
+								<%= vote.vote_genre_name %>
+							</div>
+							<div class="card-body">
+					    		<h5 class="card-title"><%= @votes.where(vote_genre_name: vote.vote_genre_name).size %></h5>
+							</div>
+						</div>
+						<% end %>
+					</div>
+			<%= link_to "みんなが行きたいレストランは...(東京都内の場合はこちら)", "https://tabelog.com/tokyo/rstLst/?vs=1&sa=#{@area.key(@area.values.max)}&sk=#{@genre.key(@genre.values.max)}&lid=yoyaku-search_header&vac_net=1&svd=#{@dinner.make_time.strftime("%Y%m%d")}&svt=#{@dinner.make_time.strftime("%H%M")}&svps=#{@votes.where(attend: true).count}&hfc=1&Cat=RC&LstCat=RC13&LstCatD=RC1301&LstCatSD=RC130101&cat_sk=%E7%84%BC%E8%82%89", class: "btn btn-outline-secondary btn-lg vote-decide-btn1", target: "_blank" %>
+			<%= link_to "みんなが行きたいレストランは...(神奈川県内の場合はこちら)", "https://tabelog.com/kanagawa/rstLst/?vs=1&sa=#{@area.key(@area.values.max)}&sk=#{@genre.key(@genre.values.max)}&lid=yoyaku-search_header&vac_net=1&svd=#{@dinner.make_time.strftime("%Y%m%d")}&svt=#{@dinner.make_time.strftime("%H%M")}&svps=#{@votes.where(attend: true).count}&hfc=1&Cat=RC&LstCat=RC13&LstCatD=RC1301&LstCatSD=RC130101&cat_sk=%E7%84%BC%E8%82%89", class: "btn btn-outline-secondary btn-lg vote-decide-btn1", target: "_blank" %>
+	</div>
+</main>

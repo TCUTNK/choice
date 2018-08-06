@@ -1,0 +1,20 @@
+<div id="history-index">
+		<div class="history-content">
+			<h3 class="history-title">
+				<p class="history-title-name">最近閲覧した食事会</p>
+			</h3>
+			<div class="row">
+				<% @votes.each do |vote| %>
+				<div class="col-sm-5 history-card-box">
+		    		<div class="card">
+		      			<div class="card-body">
+		        			<h5 class="card-title"><%= vote.dinner.dinner_name %></h5>
+		        			<p class="card-text"><%= vote.dinner.make_time.strftime("%Y-%m-%d %H:%M") %></p><br>
+		        			<%= link_to "詳細を見る", history_path(vote.dinner), class: "btn btn-outline-success" %>
+		      			</div>
+		    		</div>
+		  		</div>
+		  		<% end %>
+		  	</div>
+	  	</div>
+</div>

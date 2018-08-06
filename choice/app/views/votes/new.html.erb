@@ -1,0 +1,60 @@
+<main>
+		<div class="main-content-vote">
+			<h3 class="dinner-title">
+				<span class="make-url-date"><%= @dinner.make_time.strftime("%Y-%m-%d %H:%M") %></span>
+					<p class="make-url-title"><%= @dinner.dinner_name %></p>
+			</h3>
+			<div class="memo-text">
+				<h2 class="memo-text-title">メモ</h2>
+				<div class="memo-detail">
+					<div class="memo-detail">
+					<%= @dinner.memo %>
+					</div>
+				</div>
+			</div>
+			<%= form_for [:dinner, @vote_new] do |f| %>
+			<div class="vote-form">
+				<div class="vote-name">
+					<p class="vote-name-title">名前(ニックネーム)</p>
+					<%= f.text_field :vote_name, value: current_user.name , class: "form-control vote-name-form"%>
+				</div>
+
+				<div class="vote-attend">
+					<p class="vote-attend-title">食事会に...</p>
+					<div class="vote-btn">
+						<%= f.radio_button :attend, "true", id: "attend"%>
+						<label type="button" class="btn btn-outline-success attend-vote-btn" for="attend">参加</label>
+						<%= f.radio_button :attend, "false", id: "absent" %>
+						<label type="button" class="btn btn-outline-primary attend-vote-btn" for="absent">不参加</label>
+					</div>
+				</div>
+				<div class="vote-budget">
+					<p class="vote-budget-title">予算</p>
+					<%= f.collection_select :budget_id, Budget.all, :id, :range, include_blank: true, class: "form-control vote-budget-form" %>
+				</div>
+				<div class="vote-area">
+					<p class="vote-area-title">エリア</p>
+
+					<div class="area-box">
+						<% @dinner.areas.each do |area| %>
+							<%= f.radio_button :vote_area_name, area.area_name, id: area.area_name%>
+							<label type="button" class="btn btn-outline-secondary area-btn" type="area.area_name" for= <%=area.area_name%> > <%= area.area_name %></label>
+						<% end %>
+
+					</div>
+				</div>
+				<div class="vote-genre">
+					<p class="vote-genre-title">料理</p>
+					<div class="genre-box">
+						<% @dinner.genres.each do |genre| %>
+						<%= f.radio_button :vote_genre_name, genre.genre_name, id: genre.genre_name %>
+						<label for= <%= genre.genre_name %> type="button" class="btn btn-outline-secondary genre-btn" > <%= genre.genre_name %> </label>
+						<% end %>
+					</div>
+				</div>
+				
+				<%= f.submit "投票する！", class: "btn btn-outline-secondary btn-lg vote-decide-btn", roll: "button" %>
+			</div>
+			<% end %>
+		</div>
+	</main>

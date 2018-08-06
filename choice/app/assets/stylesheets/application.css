@@ -1,12 +1,18 @@
-
 /*
-html5doctor.com Reset Stylesheet
-v1.6.1
-Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com 
-Twitter: @rich_clark
-*/
-
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -128,7 +134,7 @@ header, footer {
 .logo {
 	width: 25%;
 	height: 90px;
-	background-image: url("img/choice.png");
+	background-image: url("/images/choice.png");
 	background-position: center;
 	background-size: cover;
 	float: left;
@@ -146,7 +152,7 @@ ul {
 }
 li {
 	float: right;
-	padding-right:70px;
+	padding-right:12%;
 }
 a:hover {
 	color: #008800;
@@ -207,12 +213,15 @@ input, textarea, .make-url-message {
 }
 .dinner-date-form, .dinner-memo-form {
 	width: 400px;
+	height: 155px;
 }
 .dinner-genre, .dinner-area,.dinner-budget {
-	padding-top: 15px;
+	float: left;
+	padding-top: 20px;
+    padding-bottom: 15px;
 }
 .dinner-memo {
-	padding-top: 50px;
+	padding-top: 32px;
 }
 .dinner-form-button {
     position: relative;
@@ -245,7 +254,7 @@ input, textarea, .make-url-message {
 	margin:30px 20px 20px 40px;
 }
 .history-detail {
-
+	margin:0 auto;
 }
 .history-detail-message {
 	font-family: 'MS PGothic';
@@ -269,7 +278,7 @@ input, textarea, .make-url-message {
 	font-size: 22px;
 }
 .choice-strong-img {
-	background-image: url(img/strong.png);
+	background-image: url(/images/strong.png);
 	width: 105%;
 	height: 400px;
 	background-position: center;
@@ -283,7 +292,7 @@ input, textarea, .make-url-message {
 .logo-2 {
 	width: 25%;
 	height: 90px;
-	background-image: url("img/choice.png");
+	background-image: url("/images/choice.png");
 	background-position: center;
 	background-size: cover;
 	float: left;
@@ -319,7 +328,7 @@ input, textarea, .make-url-message {
 	padding: 10px;
     border-radius: 10px;
 }
-.vote-attend {
+.vote-attend, .vote-budget {
 	margin:0 auto;
 }
 .attend-vote-btn {
@@ -327,7 +336,7 @@ input, textarea, .make-url-message {
 	margin-right: 5%;
 	width: 100px;
 }
-.attnd-vote-btn:active{
+.attend-vote-btn:active{
 	background-color: red;
 }
 .dinner-title {
@@ -338,14 +347,25 @@ input, textarea, .make-url-message {
 	border-bottom: inset 7px #c0c0c0;
 	border-radius: 0.4em;
 }
-.vote-name {
+.vote-name, .vote-budget {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
-.vote-name-form, .vote-btn, .area-box, .genre-box {
+.vote-budget {
+	text-align: center;
+}
+.vote-budget-title {
+	text-align: left;
+}
+.vote-name-form, .vote-btn, .area-box, .genre-box,.vote-budget-form  {
 	margin-top: 20px;
 	margin-bottom: 20px;
 	text-align: center;
+}
+#vote_budget_id {
+	margin:0 auto;
+	width: 80%;
+    height: 40px;
 }
 .area-btn {
 	margin: 20px;
@@ -357,6 +377,14 @@ input, textarea, .make-url-message {
 	background-color: white;
 	color: black;
 	width: 50%;
+	}
+.vote-decide-btn1 {
+	border-radius: 50px;
+	display: block;
+	margin: 30px auto;
+	background-color: white;
+	color: black;
+	width: 700px;
 }
 .detail {
 	width: 90%;
@@ -371,23 +399,76 @@ input, textarea, .make-url-message {
 
 }
 .memo-detail {
-	text-align: left;
+	font-size: 18px;
 	line-height: 22px;
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
+#dinner_make_time_1i, #dinner_make_time_2i, #dinner_make_time_3i, #dinner_make_time_4i, #dinner_make_time_5i {
+	height: 38px;
+	border-color: #c0c0c0;
+	background-color: white;
+}
+.cocoon-btn {
+	margin-top: 5px;
+	width: 89px;
+}
+.test, .dinner-name-form {
+	margin-top: 5px;
+}
+.cocoon-btn1 {
+	margin-top:18px;
+	height: 37px;
 
-
-
-
-
-
-
-
-
-
-
-
+}
+.cocoon-btn2 {
+	width: 89px;
+}
+.card-title {
+	font-size: 18px;
+}
+.card-text {
+	color: #444444;
+	font-size: 14px;
+}
+.votes-name {
+	color: #555555;
+}
+.signin-section {
+	background-image: url(/images/yellowgreen.png);
+	text-align:center;
+	padding-bottom: 300px;
+}
+.signin-logo {
+	margin-top: 100px;
+	margin-bottom: 50px;
+	width: 300px;
+	height: 150px;
+}
+.signin-form {
+	width: 200px;
+	height: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+.signin-btn {
+	width: 200px;
+	height: 40px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.facebook-color {
+	background-color: #305097;
+}
+.or {
+	font-size: 12px;
+	color: #808080;
+}
+.or2 {
+	font-size: 15px;
+	margin-top: 10px;
+}
 
 
 
